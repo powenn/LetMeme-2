@@ -17,7 +17,7 @@ jobs:
           chmod +x ./build.command
           /bin/bash -c ./build.command
       - name: Upload AboutMe.ipa
-        uses: actions/upload-artifact@4
+        uses: actions/upload-artifact@v4
         with:
           name: "LetMeme.ipa"
           path: "LetMeme.ipa"
