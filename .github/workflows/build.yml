@@ -1,0 +1,23 @@
+name: Build ipa
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: brew install ldid xz
+      - uses: actions/checkout@v2
+      - name: submodules-init
+        uses: snickerbockers/submodules-init@v4
+      - name: Build
+        run: |
+          chmod +x ./build.command
+          /bin/bash -c ./build.command
+      - name: Upload AboutMe.ipa
+        uses: actions/upload-artifact@4
+        with:
+          name: "LetMeme.ipa"
+          path: "LetMeme.ipa"
