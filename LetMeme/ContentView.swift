@@ -50,7 +50,7 @@ struct ContentView: View {
                         .padding()
                 }
                 .padding()
-            }.ignoresSafeArea()
+            }
             .onReceive(timer, perform: { _ in
                 colors = ColorfulPreset.allCases.randomElement()!.colors
                 timer = Timer.publish(every: appSettings.colorTimerInterval, on: .main, in: .common).autoconnect()
